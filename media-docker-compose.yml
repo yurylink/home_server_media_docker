@@ -13,7 +13,7 @@ services:
       - WebUI\HostHeaderValidation=false
     volumes:
       - /qbittorrent/config:/config
-      - /home/yurylink/media-server/downloads:/downloads
+      - /mnt/medialib/downloads:/downloads
     ports:
       - '9080:8080'
       - '62609:62609'
@@ -109,7 +109,7 @@ services:
       - PGID=1000
     volumes:
       - /radarr/appdata/config:/config
-      - /home/yurylink/media-server/downloads:/downloads
+      - /mnt/medialib/downloads:/downloads
       - /radarr/movies:/movies
       - /radarr/anime:/anime
     ports:
@@ -128,7 +128,7 @@ services:
     volumes:
       - /sonarr/appdata/config:/config
       - /sonarr:/tv
-      - /home/yurylink/media-server/downloads:/downloads
+      - /mnt/medialib/downloads:/downloads
     ports:
       - '8989:8989'
 
@@ -146,8 +146,10 @@ services:
       - /plex/config:/config
       - /plex/data:/data
       - /transcode:/transcode
-      - /home/yurylink/media-server/downloads:/media
+      - /mnt/medialib:/media
 #    devices:
 #      - /dev/dri:/dev/dri
 #      - /dev/bus/usb:/dev/bus/usb
+#    ports:
+#      - '9696:9696'
     network_mode: host
