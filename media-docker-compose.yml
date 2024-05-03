@@ -134,7 +134,7 @@ services:
 
   plex:
     container_name: plex
-    image: plexinc/pms-docker:latest
+    image: lscr.io/linuxserver/plex:latest
     restart: unless-stopped
     environment:
       - TZ=Europe/London
