@@ -3,11 +3,11 @@ version: '3'
 services:
   qbittorrent:
     container_name: qbittorrent
-    image: linuxserver/qbittorrent:latest
+    image: linuxserver/qbittorrent
     restart: unless-stopped
     environment:
       - TZ=Europe/London
-      - WEBUI_PORT=8090
+      - WEBUI_PORT=9080
       - PUID=1000
       - PGID=1000
       - WebUI\HostHeaderValidation=false
@@ -15,7 +15,7 @@ services:
       - /qbittorrent/config:/config
       - /mnt/medialib/downloads:/downloads
     ports:
-      - '9080:8080'
+      - '9080:9080'
       - '62609:62609'
 
   jackett:
@@ -140,8 +140,8 @@ services:
       - TZ=Europe/London
       - PUID=1000
       - PGID=1000
-      - VA_DRIVER=IHD
-      - PLEX_HW_TRANS_MAX=16
+#      - VA_DRIVER=IHD
+#      - PLEX_HW_TRANS_MAX=16
     volumes:
       - /plex/config:/config
       - /plex/data:/data
